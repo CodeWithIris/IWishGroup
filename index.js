@@ -18,7 +18,7 @@ function startGame(){
           'max': 500
         },
         connect: true,
-            direction: 'rtl',
+            direction: 'ltr',
             orientation: 'horizontal',
             behaviour: 'tap-drag',
             tooltips: true,
@@ -53,20 +53,21 @@ function startGame(){
     
   setTimeout(() => {processStep2()}, 1000);
   }
+}
 
 function processStep2()
 {
-  if( lowerValues.length==0)
+  if( lowerDictionary.length==0)
   {
     alert("uncomment code in makeGraph.js file")
   }
   else
   {
-    showChart();
-    alert("Well done you've completed the demo")
+    showChart()
+    setTimeout(() => {successMessage()}, 1000);
   }  
 }
   
+function successMessage(){
+  alert("Well done you've completed the demo")
 }
-
-
