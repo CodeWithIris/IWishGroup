@@ -1,6 +1,6 @@
 var lowerDictionary = {};
 var higherDictionary = {};
-makeChart();
+//makeChart();
 
 function makeChart(){
   // for(var i = 0; i<=500; i=i+10)
