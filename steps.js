@@ -14,12 +14,12 @@ function startStep1(){
   {
     if(!chartMade)
     {
-      alert("uncomment code in makeGraph.js file")
+      alert("uncomment code in makeGraph.js file") //next step after this is displayed - option to change graph colours
     }
     else
     {
       showChart()
-      setTimeout(() => {successMessage()}, 1000);
+      setTimeout(() => {successMessage()}, 1000); //this "successMessage should actually be calling step 3"
     }  
   }
     
