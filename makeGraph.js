@@ -2,6 +2,7 @@ var chartMade = false;
 var lowerDictionary = {};
 var higherDictionary = {};
 var averagDictionary = {};
+var colorFlag = false;
 //step 2 - remove the // before makeChart()
 //makeChart();
 
@@ -10,11 +11,8 @@ function makeChart(){
     {
         lowerDictionary[i] = xyValues[i].lower;
         higherDictionary[i] = xyValues[i].higher;
-        console.log("lower "+lowerDictionary[i]+ ", higher "+higherDictionary[i])
-        var average = ((xyValues[i].higher - xyValues[i].lower)/2) + xyValues[i].lower
-       averagDictionary[i] =  average; //someone change this if there is an obviously more elegant way of doing this pls
-       console.log("lower "+lowerDictionary[i]+ ", higher "+higherDictionary[i]+ ", average "+averagDictionary)
-      }
+       averagDictionary[i] = ((xyValues[i].higher - xyValues[i].lower)/2) + xyValues[i].lower; //someone change this if there is an obviously more elegant way of doing this pls
+       }
     chartMade = true;
 }
 
@@ -29,35 +27,36 @@ function showChart(){
   var averageX = Object.values(averagDictionary)
   var averageY = Object.keys(averagDictionary)
 
+  var d = {
+    labels: lowerY, higherY, averageY,
+    datasets: [
+      {
+        label: "lower guesses",
+        //backgroundColor: "#3e95cd",
+        borderColor: "Green",
+        fill: false,
+        data: lowerX, lowerY
+      },
+      {
+        label: "higher guesses",
+        fill: false,
+        //borderColor: "Red",
+        data: higherX, higherY
+      },
+      {
+        label: "avg guesses",
+        backgroundColor: "grey",
+        borderColor: "grey",
+        borderDash: [10],
+        fill: false,
+        data: averageX, averageY
+      },
+    ]
+  }
+
   myLine = new Chart("myLine", {
     type: "line",
-    data: {
-      labels: lowerY, higherY,
-      datasets: [
-        {
-          label: "lower guesses",
-          backgroundColor: "blue",
-          borderColor: "blue",
-          fill: false,
-          data: lowerX, lowerY
-        },
-        {
-          label: "higher guesses",
-          backgroundColor: "red",
-          borderColor: "red",
-          fill: false,
-          data: higherX, higherY
-        },
-        {
-          label: "avg guesses",
-          backgroundColor: "grey",
-          borderColor: "grey",
-          borderDash: [10],
-          fill: false,
-          data: averageX, averageY
-        },
-      ]
-    },
+    data: d,
     fill: false,
     options:{
       legend: {
@@ -86,6 +85,10 @@ function showChart(){
       }
     }
   });
+  if(d.datasets[0].borderColor != null && d.datasets[1].borderColor != null )
+	{
+		colorFlag = true;
+	}
 }
 
 function refreshGraph()

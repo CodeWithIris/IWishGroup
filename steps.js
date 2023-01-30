@@ -19,7 +19,20 @@ function startStep1(){
     else
     {
       showChart()
-      setTimeout(() => {successMessage()}, 1000); //this "successMessage should actually be calling step 3"
+      setTimeout(() => {processStep3()}, 1000);//this "successMessage should actually be calling step 3"
+    }  
+  }
+
+  function processStep3()
+  {
+    if(!colorFlag)
+    {
+		alert("Try to change color of the line in makeGraph.js file")
+		setTimeout(() => {processStep3()}, 1000*5);
+    }
+    else
+    {
+		setTimeout(() => {successMessage()}, 1000);
     }  
   }
     
