@@ -1,0 +1,42 @@
+* {
+    background-color: #eff3f2;
+}
+
+#addNewSlider,
+#refresh {
+    display: none;
+}
+
+.wrapper {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.item {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#graph {
+    background-color: white;
+}
+
+.button {
+    background-color: #a937f5;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.players {
+    margin-top: 5%;
+}
+
+#ranges .noUi-connect {
+	background: #a937f5;
+}

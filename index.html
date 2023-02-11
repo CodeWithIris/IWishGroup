@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!--Tested on Windows 10, Google Chrome -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>IWish Group</title>
-        <meta name="description" content="Grade Table">
-        <link href="styles.css" rel="stylesheet">
-        <link rel='stylesheet' href='dist/nouislider.min.css'>
-    </head>
-    <body> 
-        <h1>Sweet plotter</h1>  
-        <button id="start" onclick="startStep1()">Create Graph</button>
-        <button id="AddNewSlider" onclick="addNewSlider()">Add New Slider</button>
-        <div id="range"></div>
-        <div id="game-board"></div>
-        <canvas id="myLine" style="width:100%;max-width:700px"></canvas>
+
+<head>
+    <!--Tested on Windows 10, Google Chrome -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IWish Group</title>
+    <meta name="description" content="Sweet Graph">
+    <link href="gameCode/styles.css" rel="stylesheet">
+    <link rel='stylesheet' href='dist/nouislider.min.css'>
+</head>
+
+<body>
+    <div class="wrapper">
+    <h1>Sweet plotter</h1>
+    <button class="button" id="start" onclick="startStep1()">Create Graph</button>
+    <button class="button" id="refresh" onclick="showChart()">Refresh Graph</button>
+    <button class="button" id="addNewSlider" onclick="addNewSlider()">Add New Slider</button>
+    <canvas class="item" id="graph"></canvas>
+    <div class="item" id="players"></div>
+    <div class="item" id="ranges"></div>
     </div>
-        <script src="dist/Chart.js"></script>
-        <script src="dist/nouislider.min.js"></script>
-        <script src="gameSteps/step1.js"></script>
-        <script src="gameSteps/step2.js"></script>
-        <script src="gameSteps/step3.js"></script>
-        <script src="makeGraph.js"></script>
-        <script src="makeSliders.js"></script>
-        <script src="steps.js"></script>
-    </body>
+
+    <script src="dist/Chart.js"></script>
+    <script src="dist/nouislider.min.js"></script>
+    <script src="step1.js"></script>
+    <script src="step2.js"></script>
+    <script src="step3.js"></script>
+    <script src="gameCode/makeGraph.js"></script>
+    <script src="gameCode/makeSliders.js"></script>
+    <script src="gameCode/makeSteps.js"></script>
+</body>
+
 </html>
-
-
-
-
-

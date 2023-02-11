@@ -1,5 +1,3 @@
-var colorFlag = false;
-
 function showChart(){
   var yValues = [];
   var lowerXValues = [];
@@ -17,32 +15,39 @@ function showChart(){
     datasets: [
       {
         label: "lower guesses",
-        backgroundColor: "#3e95cd",
-        borderColor: "Green",
+        backgroundColor: lowerColour,
+        borderColor: lowerColour,
         fill: false,
         data: lowerXValues, yValues
       },
       {
         label: "higher guesses",
         fill: false,
-        borderColor: "Red",
+        borderColor: higherColour,
+        backgroundColor: higherColour,
         data: higherXValues, yValues
       },
       {
         label: "avg guesses",
-        backgroundColor: "grey",
         borderColor: "grey",
         borderDash: [10],
         fill: false,
         data: averageXValues, yValues
       },
+      {
+        label: "actual value",
+        borderColor: "#ADD8E6",
+        borderDash: [10],
+        fill: false,
+        data: actualLineValues, yValues
+      }
     ]
   }
 
-  myLine = new Chart("myLine", {
+  myLine = new Chart("graph", {
     type: "line",
     data: d,
-    fill: false,
+    fillStyle: "white",
     options:{
       legend: {
         display: true
@@ -68,11 +73,8 @@ function showChart(){
           }
         }
       }
-    }
+    },
   });
-  if(d.datasets[0].borderColor != null && d.datasets[1].borderColor != null )
-	{
-		colorFlag = true;
-	}
-  document.getElementById("AddNewSlider").style.visibility = hidden;
+  document.getElementById("graph").style.width= "70%";
+  document.getElementById("graph").style.margin= "auto";
 }
