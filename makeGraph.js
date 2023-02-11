@@ -1,47 +1,32 @@
-var chartMade = false;
-var lowerDictionary = {};
-var higherDictionary = {};
-var averagDictionary = {};
 var colorFlag = false;
-//step 2 - remove the // before makeChart()
-//makeChart();
-
-function makeChart(){
-    for(var i = 0; i<xyValues.length; i++)
-    {
-        lowerDictionary[i] = xyValues[i].lower;
-        higherDictionary[i] = xyValues[i].higher;
-       averagDictionary[i] = ((xyValues[i].higher - xyValues[i].lower)/2) + xyValues[i].lower; //someone change this if there is an obviously more elegant way of doing this pls
-       }
-    chartMade = true;
-}
 
 function showChart(){
-
-  var lowerX = Object.values(lowerDictionary)
-  var lowerY = Object.keys(lowerDictionary)
-
-  var higherX = Object.values(higherDictionary)
-  var higherY = Object.keys(higherDictionary)
-
-  var averageX = Object.values(averagDictionary)
-  var averageY = Object.keys(averagDictionary)
-
+  var yValues = [];
+  var lowerXValues = [];
+  var higherXValues = [];
+  var averageXValues = [];
+  for(var i = 0; i<xyValues.length; i++)
+  {
+    yValues.push(i);
+    lowerXValues.push(xyValues[i].lower);
+    higherXValues.push(xyValues[i].higher);
+    averageXValues.push(((xyValues[i].higher - xyValues[i].lower)/2) + xyValues[i].lower);
+  }
   var d = {
-    labels: lowerY, higherY, averageY,
+    labels: yValues,
     datasets: [
       {
         label: "lower guesses",
-        //backgroundColor: "#3e95cd",
+        backgroundColor: "#3e95cd",
         borderColor: "Green",
         fill: false,
-        data: lowerX, lowerY
+        data: lowerXValues, yValues
       },
       {
         label: "higher guesses",
         fill: false,
-        //borderColor: "Red",
-        data: higherX, higherY
+        borderColor: "Red",
+        data: higherXValues, yValues
       },
       {
         label: "avg guesses",
@@ -49,7 +34,7 @@ function showChart(){
         borderColor: "grey",
         borderDash: [10],
         fill: false,
-        data: averageX, averageY
+        data: averageXValues, yValues
       },
     ]
   }
@@ -89,10 +74,5 @@ function showChart(){
 	{
 		colorFlag = true;
 	}
-}
-
-function refreshGraph()
-{
-  makeChart();
-  showChart();
+  document.getElementById("AddNewSlider").style.visibility = hidden;
 }

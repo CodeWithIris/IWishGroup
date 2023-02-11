@@ -5,4 +5,5 @@ var xyValues = [
   {lower:80, higher:500},
   //step 1
   //copy the line above and replace values with your guesses
+  {lower:80, higher:500},
 ];

@@ -27,9 +27,8 @@ function makeSliders()
   }
 }
 
-function AddNewSlider() 
+function addNewSlider() 
 {
-  console.log("AddNewSlider has been called");
   var previousLength = xyValues.length; 
   xyValues.push({lower: xyValues[previousLength-1].lower, higher: xyValues[previousLength-1].higher})
   const slider = document.createElement("div");
@@ -55,18 +54,11 @@ function AddNewSlider()
       });
 
       sliderUI.on('update', (positions) => {
-      if(positions[0]<lowerDictionary[previousLength-1] || positions[1]>higherDictionary[previousLength-1])
-      {
-        document.getElementById("narrowOrTrade").innerHTML="Show graph trade";
-      }
-      else
-      {
-        document.getElementById("narrowOrTrade").innerHTML="Show graph narrow";
-      }
       xyValues[previousLength].lower = parseInt(positions[0]);
       xyValues[previousLength].higher = parseInt(positions[1]);
       });
 
       slider.style.margin = '30px';
+      showChart();
 }
 
