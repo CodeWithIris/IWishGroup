@@ -8,13 +8,18 @@
     <title>IWish Group</title>
     <meta name="description" content="Sweet Graph">
     <link href="gameCode/styles.css" rel="stylesheet">
+    <link href="step4.css" rel="stylesheet">
     <link rel='stylesheet' href='dist/nouislider.min.css'>
 </head>
 
 <body>
     <div class="wrapper">
     <h1>Sweet plotter</h1>
-    <button class="button" id="start" onclick="startStep1()">Create Graph</button>
+    <div id="start">
+    <button id="leftEdge"></button>
+    <button class="button" onclick="startStep1()">Create Graph</button>
+    <button id="rightEdge"></button>
+    </div>
     <button class="button" id="refresh" onclick="showChart()">Refresh Graph</button>
     <button class="button" id="addNewSlider" onclick="addNewSlider()">Add New Slider</button>
     <canvas class="item" id="graph"></canvas>

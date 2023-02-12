@@ -18,7 +18,7 @@
     text-align: center;
 }
 
-#graph {
+#graph, #ranges, #players {
     background-color: white;
 }
 
@@ -31,6 +31,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius: 8px;
 }
 
 .players {
@@ -39,4 +40,37 @@
 
 #ranges .noUi-connect {
 	background: #a937f5;
+}
+
+h1{
+    font-family: Verdana;
+    font-size: 25px;
+    color: #a937f5;
+}
+
+#leftEdge
+{
+    border-style: solid;
+    height: 0px;
+    width: 0px;
+    display: inline-block;
+    border-color: transparent transparent transparent #a937f5;
+    border-width: 1.5rem 0 1.5rem 3rem;
+    padding: 0;
+    border-radius: 8px;
+}
+
+#rightEdge
+{
+    border-style: solid;
+    height: 0px;
+    width: 0px;
+    display: inline-block;
+    border-color: transparent  #a937f5 transparent transparent;
+    border-width: 1.5rem 3rem 1.5rem 0;
+    padding: 0;
+    border-radius: 8px;
+}
+#players{
+    padding-top: 30px;
 }
