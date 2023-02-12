@@ -1,7 +1,12 @@
+var chartMade = false
 function makeSliders() {
-  for (var index = 0; index < xyValues.length; index++) {
-    updateSliders(index)
+  if(!chartMade)
+  {
+    for (var index = 0; index < xyValues.length; index++) {
+      updateSliders(index)
+    }
   }
+  chartMade == true;
 }
 
 function addNewSlider() {

@@ -1,7 +1,4 @@
 function startStep1(){
-  document.getElementById("start").style.display = "none";
-  document.getElementById("addNewSlider").style.display = "inline-block";
-  document.getElementById("refresh").style.display = "inline-block";
     if(xyValues.length==4)
     {
       alert("Fill in a new lower and higher guess in step1.js file")
