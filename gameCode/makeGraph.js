@@ -75,9 +75,7 @@ function showChart(){
       }
     },
   });
-  document.getElementById("start").style.display = "none";
-  document.getElementById("addNewSlider").style.display = "inline-block";
-  document.getElementById("refresh").style.display = "inline-block";
   document.getElementById("graph").style.width= "70%";
   document.getElementById("graph").style.margin= "auto";
+  makeScore();
 }

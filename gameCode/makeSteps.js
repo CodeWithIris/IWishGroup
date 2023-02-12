@@ -1,3 +1,4 @@
+var chartMade = false;
 function startStep1(){
     if(xyValues.length==4)
     {
@@ -6,10 +7,15 @@ function startStep1(){
     }
     else
     {
-      makeSliders()
+      if(!chartMade)
+      {
+        chartMade = true;
+        makeSliders()
+      }
       setTimeout(() => {processStep2()}, 1000);
     }
   }
+
   
 
   function processStep2()
@@ -48,10 +54,27 @@ function startStep1(){
     }
     else
     {
+		  setTimeout(() => {processStep5()}, 1000);
+    }  
+  }
+
+  function processStep5()
+  {
+    if(!calculateScore)
+    {
+      alert("Enable score calculating in step5.js file")
+      setTimeout(() => {processStep5()}, 1000*5);
+    }
+    else
+    {
 		  setTimeout(() => {successMessage()}, 1000);
+      makeScore();
     }  
   }
     
   function successMessage(){
-    alert("Well done you've completed the demo")
+    document.getElementById("start").style.display = "none";
+    document.getElementById("addNewSlider").style.display = "inline-block";
+    document.getElementById("refresh").style.display = "inline-block";
+    alert("Well done you've made the sweet game")
   }

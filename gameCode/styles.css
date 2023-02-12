@@ -18,7 +18,7 @@
     text-align: center;
 }
 
-#graph, #ranges, #players {
+#graph, #ranges, #players, #scores {
     background-color: white;
 }
 
@@ -32,10 +32,6 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 8px;
-}
-
-.players {
-    margin-top: 5%;
 }
 
 #ranges .noUi-connect {
