@@ -26,7 +26,7 @@ function showChart(){
         data: higherXValues, yValues
       },
       {
-        label: "actual value",
+        label: "actual number",
         borderColor: "#ADD8E6",
         borderDash: [10],
         fill: false,
