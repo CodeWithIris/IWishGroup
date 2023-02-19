@@ -1,9 +1,9 @@
 var chartMade = false;
 function startStep1(){
-    if(xyValues.length==4)
+    if(guesses.length<=1)
     {
-      alert("Fill in a new lower and higher guess in step1.js file")
-      setTimeout(() => {processStep1()}, 1000*5);
+      showChart();
+      setTimeout(() => {alert("Fill in some guesses for the amount of sweets in step1.js file")}, 700);
     }
     else
     {
@@ -12,69 +12,41 @@ function startStep1(){
         chartMade = true;
         makeSliders()
       }
-      setTimeout(() => {processStep2()}, 1000);
+      processStep2();
     }
   }
 
+function processStep2()
+{
+  if(minLineColour == "yellow" || maxLineColour == "yellow")
+  {
+    showChart();
+    setTimeout(() => {alert("Try to change color of the line in step2.js file")}, 700);
+  }
+  else
+  {
+    processStep3();
+  }  
+}
+
+function processStep3()
+{    
+  if(actualNumberOfSweets === 0)
+  {
+    showChart();
+    setTimeout(() => {alert("Set actual number of sweets for to calculate scores in step3.js file")}, 1000);
+  }
+  else
+  {
+    makeScore();
+    successMessage()
+  }  
+}
   
-
-  function processStep2()
-  {
-    if(lowerColour == "yellow" || higherColour == "yellow")
-    {
-		alert("Try to change color of the line in step2.js file")
-		setTimeout(() => {processStep2()}, 1000*5);
-    }
-    else
-    {
-      showChart()
-		  setTimeout(() => {processStep3()}, 1000);
-    }  
-  }
-
-  function processStep3()
-  {
-    if(actualLineValues.length===0)
-    {
-      alert("Try to set the actual amount in step3.js file")
-      setTimeout(() => {processStep3()}, 1000*5);
-    }
-    else
-    {
-		  setTimeout(() => {processStep4()}, 1000);
-    }  
-  }
-
-  function processStep4()
-  {
-    if(getComputedStyle(document.getElementById("players")).fontSize === "8px")
-    {
-      alert("Make font size of players bigger in step4.css file")
-      setTimeout(() => {processStep4()}, 1000*5);
-    }
-    else
-    {
-		  setTimeout(() => {processStep5()}, 1000);
-    }  
-  }
-
-  function processStep5()
-  {
-    if(!calculateScore)
-    {
-      alert("Enable score calculating in step5.js file")
-      setTimeout(() => {processStep5()}, 1000*5);
-    }
-    else
-    {
-		  setTimeout(() => {successMessage()}, 1000);
-      makeScore();
-    }  
-  }
-    
-  function successMessage(){
-    document.getElementById("start").style.display = "none";
-    document.getElementById("addNewSlider").style.display = "inline-block";
-    document.getElementById("refresh").style.display = "inline-block";
-    alert("Well done you've made the sweet game")
-  }
+function successMessage(){
+  showChart();
+  document.getElementById("start").style.display = "none";
+  document.getElementById("addNewSlider").style.display = "inline-block";
+  document.getElementById("refresh").style.display = "inline-block";
+  setTimeout(() => {alert("Well done you've made the sweet game")}, 1000);
+}

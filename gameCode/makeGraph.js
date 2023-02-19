@@ -2,37 +2,28 @@ function showChart(){
   var yValues = [];
   var lowerXValues = [];
   var higherXValues = [];
-  var averageXValues = [];
-  for(var i = 0; i<xyValues.length; i++)
+  for(var i = 0; i<guesses.length; i++)
   {
     yValues.push(i);
-    lowerXValues.push(xyValues[i].lower);
-    higherXValues.push(xyValues[i].higher);
-    averageXValues.push(((xyValues[i].higher - xyValues[i].lower)/2) + xyValues[i].lower);
+    lowerXValues.push(guesses[i].min);
+    higherXValues.push(guesses[i].max);
   }
   var d = {
     labels: yValues,
     datasets: [
       {
-        label: "lower guesses",
-        backgroundColor: lowerColour,
-        borderColor: lowerColour,
+        label: "min guesses",
+        backgroundColor: minLineColour,
+        borderColor: minLineColour,
         fill: false,
         data: lowerXValues, yValues
       },
       {
-        label: "higher guesses",
+        label: "max guesses",
         fill: false,
-        borderColor: higherColour,
-        backgroundColor: higherColour,
+        borderColor: maxLineColour,
+        backgroundColor: maxLineColour,
         data: higherXValues, yValues
-      },
-      {
-        label: "avg guesses",
-        borderColor: "grey",
-        borderDash: [10],
-        fill: false,
-        data: averageXValues, yValues
       },
       {
         label: "actual value",
@@ -52,9 +43,10 @@ function showChart(){
       legend: {
         display: true
       },
-      tooltips: {
-        enabled: true
-      },
+      events: [],
+      tooltips: {enabled: false},
+      hover: {mode: null},
+      interactivityEnabled: false,
       scales: {
         yAxes: [{
           ticks: {
@@ -75,7 +67,7 @@ function showChart(){
       }
     },
   });
+  makeScore();
   document.getElementById("graph").style.width= "70%";
   document.getElementById("graph").style.margin= "auto";
-  makeScore();
 }

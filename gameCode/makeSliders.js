@@ -1,12 +1,12 @@
 function makeSliders() {
-    for (var index = 0; index < xyValues.length; index++) {
+    for (var index = 0; index < guesses.length; index++) {
       updateSliders(index)
     }
 }
 
 function addNewSlider() {
-  var previousLength = xyValues.length;
-  xyValues.push({ lower: xyValues[previousLength - 1].lower, higher: xyValues[previousLength - 1].higher })
+  var previousLength = guesses.length;
+  guesses.push({ min: guesses[previousLength - 1].min, max: guesses[previousLength - 1].max })
   updateSliders(previousLength)
   showChart();
 }
@@ -19,12 +19,12 @@ function updateSliders(index) {
   const slider = document.createElement("div");
   document.getElementById("ranges").appendChild(slider);
   let sliderUI = noUiSlider.create(slider, {
-    start: [parseInt(xyValues[index].lower), parseInt(xyValues[index].higher)],
+    start: [parseInt(guesses[index].min), parseInt(guesses[index].max)],
     connect: true,
     animate: false,
     range: {
       'min': 0,
-      'max': 500
+      'max': guesses[0].max
     },
     direction: 'rtl',
     orientation: 'vertical',
@@ -38,8 +38,8 @@ function updateSliders(index) {
   });
   sliderUI.id = index;
   sliderUI.on('update', (positions) => {
-    xyValues[sliderUI.id].lower = parseInt(positions[0]);
-    xyValues[sliderUI.id].higher = parseInt(positions[1]);
+    guesses[sliderUI.id].min = parseInt(positions[0]);
+    guesses[sliderUI.id].max = parseInt(positions[1]);
   });
   slider.style.margin = '50px';
   slider.style.height = '400px';

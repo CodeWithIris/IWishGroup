@@ -40,7 +40,7 @@
 
 h1{
     font-family: Verdana;
-    font-size: 25px;
+    font-size: 30px;
     color: #a937f5;
 }
 
@@ -69,4 +69,8 @@ h1{
 }
 #players{
     padding-top: 30px;
+}
+
+#players, #scores{
+    font-size: 16px;
 }
