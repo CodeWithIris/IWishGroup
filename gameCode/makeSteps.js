@@ -34,7 +34,7 @@ function processStep3()
   if(actualNumberOfSweets === 0)
   {
     showChart();
-    setTimeout(() => {alert("Set actual number of sweets for to calculate scores in step3.js file")}, 1000);
+    setTimeout(() => {alert("Set actual number of sweets to calculate scores in step3.js file")}, 1000);
   }
   else
   {

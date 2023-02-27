@@ -32,7 +32,7 @@ function calculateCloseness(actualValue, lowerGuess, higherGuess)
     }
     else
     {
-        value = 500
+        value = guesses[0].higher
     }
     return "Score: " + value;
 }
